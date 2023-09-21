@@ -2,3 +2,4 @@ django 4.2.2
 bitcoin
 bs4
 request
+postgresql
