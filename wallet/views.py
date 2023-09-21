@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+#from django.http import HttpResponse
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from .models import Details
@@ -20,9 +20,9 @@ def index(request):
         live_bitcoin_price1 = live_price[1].getText()
         res = requests.get('https://www.blockchain.com/btc/address/'+addr)
         if res:
-            soup = bs4.BeautifulSoup(res.text, 'lxml')
-            # bal = soup.find_all('span', {'class': 'sc-1ryi78w-0 bFGdFC sc-16b9dsl-1 iIOvXh u3ufsr-0 gXDEBk'})
-            bal = soup.find_all('div', {'class': 'sc-92d5245a-1 kmCFnx sc-a860cbb2-0 dkmEOL sc-92d5245a-2 cWXKHx'})
+            soup = bs4.BeautifulSoup(res.text, 'lxml', 'html')
+            #bal = soup.find_all('span', {'class': 'sc-1ryi78w-0 bFGdFC sc-16b9dsl-1 iIOvXh u3ufsr-0 gXDEBk'})
+            bal = soup.find_all('span', {'class': 'sc-92d5245a-1 kmCFnx sc-a860cbb2-0 dkmEOL sc-92d5245a-2 cWXKHx'})
             bal[4].getText()
             final_bal = bal[4].getText()
             final_bal1 = final_bal.replace(" ", "").rstrip()[:-3].upper()
