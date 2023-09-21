@@ -22,8 +22,7 @@ def index(request):
         if res:
             soup = bs4.BeautifulSoup(res.text, 'lxml')
             # bal = soup.find_all('span', {'class': 'sc-1ryi78w-0 bFGdFC sc-16b9dsl-1 iIOvXh u3ufsr-0 gXDEBk'})
-            bal = soup.find_all(
-                'span', {'class': 'sc-5f049527-5 cwCJYu sc-5f049527-6 bVJdBZ sc-5f049527-10 iwsnoC'})
+            bal = soup.find_all('div', {'class': 'sc-92d5245a-1 kmCFnx sc-a860cbb2-0 dkmEOL sc-92d5245a-2 cWXKHx'})
             bal[4].getText()
             final_bal = bal[4].getText()
             final_bal1 = final_bal.replace(" ", "").rstrip()[:-3].upper()
